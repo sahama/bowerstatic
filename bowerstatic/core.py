@@ -293,8 +293,9 @@ class Resource(object):
         return self.renderer(self)
 
     def content(self):
+        # encoding='latin1' for python 3
         with open(self.component.get_filename(
-                self.component.version, self.file_path)) as f:
+                self.component.version, self.file_path), encoding='latin1') as f:
             return f.read()
 
     def renderer(self):
